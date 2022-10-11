@@ -1,6 +1,7 @@
 package com.hb.noteApp.entities;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.hb.noteApp.dtos.UserDto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -52,5 +53,14 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public User(UserDto userDto){
+        if (userDto.getUsername() != null){
+            this.username = userDto.getUsername();
+        }
+        if (userDto.getPassword() != null){
+            this.password = userDto.getPassword();
+        }
     }
 }

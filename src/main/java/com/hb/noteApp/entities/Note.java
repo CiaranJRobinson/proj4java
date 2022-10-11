@@ -1,6 +1,7 @@
 package com.hb.noteApp.entities;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.hb.noteApp.dtos.NoteDto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -38,5 +39,11 @@ public class Note {
 
     public void setBody(String body) {
         this.body = body;
+    }
+
+    public Note(NoteDto noteDto){
+        if (noteDto.getBody() != null){
+            this.body = noteDto.getBody();
+        }
     }
 }
